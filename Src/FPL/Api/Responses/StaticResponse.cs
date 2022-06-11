@@ -10,6 +10,6 @@ namespace FPL.Api.Responses
         public Team[] Teams { get; init; } = default!;
         public int TotalPlayers { get; init; } = default!;
         public Element[] Elements { get; init; } = default!;
-        public ElementStats[] ElementStats { get; init; } = default!;
+        public ElementStat[] ElementStats { get; init; } = default!;
     }
 }

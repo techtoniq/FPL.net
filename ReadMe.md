@@ -1,8 +1,6 @@
 # FPL.net
 
-[![Build Status](https://dev.azure.com/techtoniq/FPL.net/_apis/build/status/techtoniq.FPL.net?branchName=main)](https://dev.azure.com/techtoniq/FPL.net/_build/latest?definitionId=72&branchName=main)
-
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Techtoniq_FPL.net&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=Techtoniq_FPL.net)
+[![Build Status](https://dev.azure.com/techtoniq/FPL.net/_apis/build/status/techtoniq.FPL.net?branchName=main)](https://dev.azure.com/techtoniq/FPL.net/_build/latest?definitionId=72&branchName=main)  [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Techtoniq_FPL.net&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=Techtoniq_FPL.net)
 
 A lightweight .net wrapper for the Fantasy Premier League API.
 
@@ -29,11 +27,11 @@ Console.WriteLine(response.Teams[0].Name);
 1. General Information
 https://fantasy.premierleague.com/api/bootstrap-static/
 
-
-## Endpoints To Be Covered
-
 2. Fixtures
 https://fantasy.premierleague.com/api/fixtures/
+
+
+## Endpoints To Be Covered
 
 3. Players' Detailed Data
 https://fantasy.premierleague.com/api/element-summary/{element_id}/
