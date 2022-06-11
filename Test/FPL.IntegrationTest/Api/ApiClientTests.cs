@@ -41,5 +41,20 @@ namespace FPL.IntegrationTest.Api
                 response.Should().NotBeNullOrEmpty();
             }
         }
+
+        public class GetPlayerDetailAsync
+        {
+            [Test]
+            public async Task When_Valid_Request_Then_Return_Populated_PlayerDetailResponse()
+            {
+                var apiClient = new ApiClient();
+                var heungMinSonId = 359;
+
+                var response = await apiClient.GetPlayerDetailAsync(heungMinSonId);
+
+                response.Should().NotBeNull();
+                response.Should().BeOfType<PlayerDetailResponse>();
+            }
+        }
     }
 }

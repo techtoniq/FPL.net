@@ -26,5 +26,10 @@ namespace FPL.Api
         {
             return await _restClient.GetAsync<Fixture[]>(new RestRequest("/api/fixtures/"));
         }
+
+        public async Task<PlayerDetailResponse?> GetPlayerDetailAsync(int id)
+        {
+            return await _restClient.GetAsync<PlayerDetailResponse>(new RestRequest($"/api/element-summary/{id}/"));
+        }
     }
 }

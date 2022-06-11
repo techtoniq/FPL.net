@@ -22,6 +22,11 @@ var response = await apiClient.GetStaticAsync();
 Console.WriteLine(response.Teams[0].Name);
 ```
 
+## Endpoint Documentation
+
+https://medium.com/@frenzelts/fantasy-premier-league-api-endpoints-a-detailed-guide-acbd5598eb19
+
+
 ## Endpoints Covered
 
 1. General Information
@@ -30,11 +35,11 @@ https://fantasy.premierleague.com/api/bootstrap-static/
 2. Fixtures
 https://fantasy.premierleague.com/api/fixtures/
 
-
-## Endpoints To Be Covered
-
 3. Players' Detailed Data
 https://fantasy.premierleague.com/api/element-summary/{element_id}/
+
+
+## Endpoints To Be Covered
 
 4. Gameweek Live Data
 Full URL: https://fantasy.premierleague.com/api/event/{event_id}/live/
@@ -63,3 +68,8 @@ https://fantasy.premierleague.com/api/dream-team/{event_id}/
 12. Set Piece Taker Notes
 https://fantasy.premierleague.com/api/team/set-piece-notes/
 
+
+## Notes
+
+The API returns decimal numbers as strings in the json stream. Therefore the models have string fields to hold these values. 
+Ideally we should customize the json deserialization to process these fields as nullable decimals `decimal?`.
