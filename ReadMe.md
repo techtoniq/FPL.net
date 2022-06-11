@@ -8,9 +8,19 @@ A lightweight .net wrapper for the Fantasy Premier League API.
 
 ## Example
 
-`var apiClient = new ApiClient();                
-var response = await apiClient.GetStaticAsync();`
+```c#
 
+using FPL.Api;
+using FPL.Api.Responses;
+using System.Threading.Tasks;
+
+...
+
+var apiClient = new ApiClient();                
+var response = await apiClient.GetStaticAsync();
+
+Console.WriteLine(response.Teams[0].Name);
+```
 
 ## Endpoints Covered
 
