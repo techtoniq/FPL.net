@@ -2,6 +2,8 @@
 
 [![Build Status](https://dev.azure.com/techtoniq/FPL.net/_apis/build/status/techtoniq.FPL.net?branchName=main)](https://dev.azure.com/techtoniq/FPL.net/_build/latest?definitionId=72&branchName=main)
 
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Techtoniq_FPL.net&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=Techtoniq_FPL.net)
+
 A lightweight .net wrapper for the Fantasy Premier League API.
 
 .Net version 6.0
