@@ -38,11 +38,11 @@ https://fantasy.premierleague.com/api/fixtures/
 3. Players' Detailed Data
 https://fantasy.premierleague.com/api/element-summary/{element_id}/
 
-
-## Endpoints To Be Covered
-
 4. Gameweek Live Data
 Full URL: https://fantasy.premierleague.com/api/event/{event_id}/live/
+
+
+## Endpoints To Be Covered
 
 5. Manager/User Basic Information
 https://fantasy.premierleague.com/api/entry/{manager_id}/

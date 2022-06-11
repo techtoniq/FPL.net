@@ -31,5 +31,9 @@ namespace FPL.Api
         {
             return await _restClient.GetAsync<PlayerDetailResponse>(new RestRequest($"/api/element-summary/{id}/"));
         }
+        public async Task<LiveGameweekResponse?> GetLiveGameweekAsync(int id)
+        {
+            return await _restClient.GetAsync<LiveGameweekResponse>(new RestRequest($"/api/event/{id}/live/"));
+        }
     }
 }

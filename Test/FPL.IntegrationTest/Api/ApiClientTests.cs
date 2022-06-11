@@ -56,5 +56,20 @@ namespace FPL.IntegrationTest.Api
                 response.Should().BeOfType<PlayerDetailResponse>();
             }
         }
+
+        public class GetLiveGameweekAsync
+        {
+            [Test]
+            public async Task When_Valid_Request_Then_Return_Populated_LiveGameweekResponse()
+            {
+                var apiClient = new ApiClient();
+                var elementId = 7;
+
+                var response = await apiClient.GetLiveGameweekAsync(elementId);
+
+                response.Should().NotBeNull();
+                response.Should().BeOfType<LiveGameweekResponse>();
+            }
+        }
     }
 }
