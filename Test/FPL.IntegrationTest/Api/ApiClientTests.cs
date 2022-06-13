@@ -19,13 +19,13 @@ namespace FPL.IntegrationTest.Api
 
                 response.Should().NotBeNull();
                 response.Should().BeOfType<StaticResponse>();
-                response.Elements.Should().NotBeNullOrEmpty();
-                response.ElementStats.Should().NotBeNullOrEmpty();
-                response.Events.Should().NotBeNullOrEmpty();
-                response.GameSettings.Should().NotBeNull();
-                response.Phases.Should().NotBeNullOrEmpty();
-                response.Teams.Should().NotBeNullOrEmpty();
-                response.TotalPlayers.Should().BeGreaterThan(0);
+                response?.Elements.Should().NotBeNullOrEmpty();
+                response?.ElementStats.Should().NotBeNullOrEmpty();
+                response?.Events.Should().NotBeNullOrEmpty();
+                response?.GameSettings.Should().NotBeNull();
+                response?.Phases.Should().NotBeNullOrEmpty();
+                response?.Teams.Should().NotBeNullOrEmpty();
+                response?.TotalPlayers.Should().BeGreaterThan(0);
             }
         }
 
