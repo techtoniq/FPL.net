@@ -11,9 +11,18 @@ namespace FPL.Api
     {
         private readonly RestClient _restClient;
 
-        public ApiClient(string baseUrl = "https://fantasy.premierleague.com")
+        public ApiClient(HttpClient httpClient = null!, string baseUrl = null!)
         {
-            _restClient = new RestClient(baseUrl);
+            if(null == httpClient)
+            {
+                httpClient = new HttpClient();
+            }
+            if(string.IsNullOrWhiteSpace(baseUrl))
+            {
+                baseUrl = "https://fantasy.premierleague.com";
+            }
+            httpClient.BaseAddress = new Uri(baseUrl);
+            _restClient = new RestClient(httpClient);
             _restClient.UseSystemTextJson(new JsonSerializerOptions { PropertyNamingPolicy = new SnakeCaseNamingPolicy() });
         }
 
