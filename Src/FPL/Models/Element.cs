@@ -1,6 +1,6 @@
 ﻿namespace FPL.Models
 {
-    public record Element
+    public record Element : PlayerStats
     {
         public int? ChanceOfPlayingNextRound { get; init; } = default!;
         public int? ChanceOfPlayingThisRound { get; init; } = default!;
@@ -38,23 +38,6 @@
         public string ValueForm { get; init; } = default!;
         public string ValueSeason { get; init; } = default!;
         public string WebName { get; init; } = default!;
-        public int Minutes { get; init; } = default!;
-        public int GoalsScored { get; init; } = default!;
-        public int Assists { get; init; } = default!;
-        public int CleanSheets { get; init; } = default!;
-        public int GoalsConceded { get; init; } = default!;
-        public int OwnGoals { get; init; } = default!;
-        public int PenaltiesSaved { get; init; } = default!;
-        public int PenaltiesMissed { get; init; } = default!;
-        public int YellowCards { get; init; } = default!;
-        public int RedCards { get; init; } = default!;
-        public int Saves { get; init; } = default!;
-        public int Bonus { get; init; } = default!;
-        public int Bps { get; init; } = default!;
-        public string Influence { get; init; } = default!;
-        public string Creativity { get; init; } = default!;
-        public string Threat { get; init; } = default!;
-        public int ICTIndex { get; init; } = default!;
         public int InfluenceRank { get; init; } = default!;
         public int InfluenceRankType { get; init; } = default!;
         public int CreativityRank { get; init; } = default!;
