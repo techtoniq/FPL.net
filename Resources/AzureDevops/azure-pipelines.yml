@@ -11,7 +11,6 @@ variables:
   solution: '**/*.sln'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
-  RunAcceptanceTests: true
 
 
 steps:
@@ -47,7 +46,6 @@ steps:
 
 - task: DotNetCoreCLI@2
   displayName: Integration Tests
-  condition: $(RunAcceptanceTests)
   inputs:
     command: test
     projects: '**/*.IntegrationTest*.csproj'
