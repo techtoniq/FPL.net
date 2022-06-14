@@ -5,6 +5,7 @@ VisualStudioVersion = 17.1.32210.238
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_Solution Items", "_Solution Items", "{EE40C2E9-1C09-413C-AC9E-C26DAA5743E4}"
 	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
 		ReadMe.md = ReadMe.md
 	EndProjectSection
 EndProject
@@ -12,11 +13,18 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Src", "Src", "{73F1B390-561
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{DCD48EC0-3209-461D-A404-C332FF1806BE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FPL", "Src\FPL\FPL.csproj", "{CF866909-A2B7-4DC8-9717-489A68DEF8F6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FPL", "Src\FPL\FPL.csproj", "{CF866909-A2B7-4DC8-9717-489A68DEF8F6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FPL.IntegrationTest", "Test\FPL.IntegrationTest\FPL.IntegrationTest.csproj", "{39AA4B6B-3E79-4E24-97A1-4D8D4AF6B019}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FPL.IntegrationTest", "Test\FPL.IntegrationTest\FPL.IntegrationTest.csproj", "{39AA4B6B-3E79-4E24-97A1-4D8D4AF6B019}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FPL.UnitTest", "Test\FPL.UnitTest\FPL.UnitTest.csproj", "{B52C1032-CDFB-4FBF-8B50-C80565AB0758}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FPL.UnitTest", "Test\FPL.UnitTest\FPL.UnitTest.csproj", "{B52C1032-CDFB-4FBF-8B50-C80565AB0758}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Resources", "Resources", "{C3E1F555-ABCB-4615-ACDA-8301C2BE490C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AzureDevops", "AzureDevops", "{9BAE583F-C38F-4322-878B-29CE90171103}"
+	ProjectSection(SolutionItems) = preProject
+		Resources\AzureDevops\azure-pipelines.yml = Resources\AzureDevops\azure-pipelines.yml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -44,6 +52,7 @@ Global
 		{CF866909-A2B7-4DC8-9717-489A68DEF8F6} = {73F1B390-561A-4443-B1DE-7BA4DDF4BF3B}
 		{39AA4B6B-3E79-4E24-97A1-4D8D4AF6B019} = {DCD48EC0-3209-461D-A404-C332FF1806BE}
 		{B52C1032-CDFB-4FBF-8B50-C80565AB0758} = {DCD48EC0-3209-461D-A404-C332FF1806BE}
+		{9BAE583F-C38F-4322-878B-29CE90171103} = {C3E1F555-ABCB-4615-ACDA-8301C2BE490C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D181A82E-A82F-4EDA-B9D4-0FEFBCD7A5B0}
