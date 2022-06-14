@@ -42,7 +42,7 @@ steps:
     command: test
     projects: '**/*UnitTest*.csproj'
     publishTestResults: true
-    arguments: '--configuration $(buildConfiguration) --no-build /p:CollectCoverage=true /p:CoverletOutput=$(Agent.TempDirectory)/CoverageResults/ /p:MergeWith=$(Agent.TempDirectory)/CoverageResults/coverage.json /p:CoverletOutputFormat="opencover%2cjson"'
+    arguments: '--configuration $(buildConfiguration) --no-build /p:CollectCoverage=true /p:CoverletOutput=$(Common.TestResultsDirectory)/CoverageResults/ /p:MergeWith=$(Common.TestResultsDirectory)/CoverageResults/coverage.json /p:CoverletOutputFormat="opencover%2cjson"'
 
 - task: DotNetCoreCLI@2
   displayName: Integration Tests
@@ -50,7 +50,7 @@ steps:
     command: test
     projects: '**/*.IntegrationTest*.csproj'
     publishTestResults: true
-    arguments: '--configuration $(buildConfiguration) --no-build  /p:CollectCoverage=true /p:CoverletOutput=$(Agent.TempDirectory)/CoverageResults/ /p:MergeWith=$(Agent.TempDirectory)/CoverageResults/coverage.json /p:CoverletOutputFormat="opencover%2cjson"'
+    arguments: '--configuration $(buildConfiguration) --no-build  /p:CollectCoverage=true /p:CoverletOutput=$(Common.TestResultsDirectory)/CoverageResults/ /p:MergeWith=$(Common.TestResultsDirectory)/CoverageResults/coverage.json /p:CoverletOutputFormat="opencover%2cjson"'
 
 
 - task: SonarCloudAnalyze@1
