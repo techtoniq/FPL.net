@@ -39,6 +39,8 @@ namespace FPL.UnitTest.Api
             public void When_No_HttpClient_Provided_Then_Created_Internally()
             {
                 var apiClient = new ApiClient(httpClient: null!, baseUrl: null!);
+
+                apiClient.Should().NotBeNull();
             }
 
             [Test]
@@ -46,12 +48,16 @@ namespace FPL.UnitTest.Api
             {
                 var httpClient = new HttpClient();
                 var apiClient = new ApiClient(httpClient: httpClient, baseUrl: null!);
+
+                apiClient.Should().NotBeNull();
             }
 
             [Test]
             public void When_BaseUrl_Provided_Then_Used()
             {
                 var apiClient = new ApiClient(httpClient: null!, baseUrl: "http://someurl/");
+
+                apiClient.Should().NotBeNull();
             }
 
             [Test]
@@ -59,6 +65,8 @@ namespace FPL.UnitTest.Api
             {
                 var httpClient = new HttpClient();
                 var apiClient = new ApiClient(httpClient: httpClient, baseUrl: "http://someurl/");
+
+                apiClient.Should().NotBeNull();
             }
         }
 
