@@ -11,6 +11,8 @@ variables:
   solution: '**/*.sln'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
+  RunAcceptanceTests: true
+
 
 steps:
 
