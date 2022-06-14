@@ -1,7 +1,5 @@
-# ASP.NET
 # Build and test ASP.NET projects.
-# Add steps that publish symbols, save build artifacts, deploy, and more:
-# https://docs.microsoft.com/azure/devops/pipelines/apps/aspnet/build-aspnet-4
+# Analyse test results via SonarCloud.
 
 trigger:
 - main
@@ -15,11 +13,6 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
-- task: NuGetToolInstaller@1
-
-- task: NuGetCommand@2
-  inputs:
-    restoreSolution: '$(solution)'
 
 - task: SonarCloudPrepare@1
   inputs:
@@ -28,28 +21,42 @@ steps:
     scannerMode: 'MSBuild'
     projectKey: 'Techtoniq_FPL.net'
     projectName: 'FPL.net'
-- task: VSBuild@1
-  inputs:
-    solution: '$(solution)'
-    msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="$(build.artifactStagingDirectory)"'
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
 
-- task: VSTest@2
+- task: DotNetCoreCLI@2
+  displayName: Restore
   inputs:
-    testSelector: 'testAssemblies'
-    testAssemblyVer2: |
-      **\*test*.dll
-      !**\*TestAdapter.dll
-      !**\obj\**
-    searchFolder: '$(System.DefaultWorkingDirectory)'
-    resultsFolder: '$(Common.TestResultsDirectory)'
-    codeCoverageEnabled: true
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
+    command: restore
+    projects: 'src/**/*.csproj'
+    noCache: true 
+
+- task: DotNetCoreCLI@2
+  displayName: Build
+  inputs:
+    projects: 'src/**/*.csproj'
+    arguments: '--configuration $(buildConfiguration) --no-restore'
+
+- task: DotNetCoreCLI@2
+  displayName: Unit Tests
+  inputs:
+    command: test
+    projects: '**/*UnitTest*.csproj'
+    publishTestResults: true
+    arguments: '--configuration $(buildConfiguration) --no-build /p:CollectCoverage=true /p:CoverletOutput=$(Agent.TempDirectory)/CoverageResults/ /p:MergeWith=$(Agent.TempDirectory)/CoverageResults/coverage.json /p:CoverletOutputFormat="opencover%2cjson"'
+
+- task: DotNetCoreCLI@2
+  displayName: Integration Tests
+  condition: ${{ parameters.RunAcceptanceTests }}
+  inputs:
+    command: test
+    projects: '**/*.IntegrationTest*.csproj'
+    publishTestResults: true
+    arguments: '--configuration $(buildConfiguration) --no-build  /p:CollectCoverage=true /p:CoverletOutput=$(Agent.TempDirectory)/CoverageResults/ /p:MergeWith=$(Agent.TempDirectory)/CoverageResults/coverage.json /p:CoverletOutputFormat="opencover%2cjson"'
+
 
 - task: SonarCloudAnalyze@1
+  displayName: Run SonarCloud analysis
 
 - task: SonarCloudPublish@1
+  displayName: Publish SonarCloud analysis results on build summary
   inputs:
     pollingTimeoutSec: '300'
