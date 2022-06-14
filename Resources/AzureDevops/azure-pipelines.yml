@@ -47,7 +47,7 @@ steps:
 
 - task: DotNetCoreCLI@2
   displayName: Integration Tests
-  condition: $(parameters.RunAcceptanceTests)
+  condition: $(RunAcceptanceTests)
   inputs:
     command: test
     projects: '**/*.IntegrationTest*.csproj'
