@@ -33,6 +33,35 @@ namespace FPL.UnitTest.Api
             return new ApiClient(httpClient);
         }
 
+        public class Constructor
+        {
+            [Test]
+            public void When_No_HttpClient_Provided_Then_Created_Internally()
+            {
+                var apiClient = new ApiClient(httpClient: null!, baseUrl: null!);
+            }
+
+            [Test]
+            public void When_HttpClient_Provided_Then_Not_Created_Internally()
+            {
+                var httpClient = new HttpClient();
+                var apiClient = new ApiClient(httpClient: httpClient, baseUrl: null!);
+            }
+
+            [Test]
+            public void When_BaseUrl_Provided_Then_Used()
+            {
+                var apiClient = new ApiClient(httpClient: null!, baseUrl: "http://someurl/");
+            }
+
+            [Test]
+            public void When_HttpClient_And_BaseUrl_Provided_Then_Used()
+            {
+                var httpClient = new HttpClient();
+                var apiClient = new ApiClient(httpClient: httpClient, baseUrl: "http://someurl/");
+            }
+        }
+
         public class GetFixturesAsync
         {
             [Test]
